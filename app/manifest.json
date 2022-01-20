@@ -1,7 +1,7 @@
 {
   "lang": "ru",
   "dir": "ltr",
-  "name": "",
+  "name": "Web Phenomenon | Портфолио",
   "description": "",
   "short_name": "",
   "icons": [
@@ -14,5 +14,5 @@
   "display": "fullscreen",
   "orientation": "portrait",
   "background_color": "#ffffff",
-  "theme_color": "#ecebeb"
+  "theme_color": "#ffffff"
 }
