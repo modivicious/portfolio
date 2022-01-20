@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио</title>
+  <meta name="description" content="Description">
+  <meta name="keywords" content="Keywords">
+  <meta name="theme-color" content="#ecebeb">
+  <link rel="preload" href="fonts/Graphik-Regular.woff2" as="font" crossorigin>
+  <link rel="preload" href="fonts/Graphik-Medium.woff2" as="font" crossorigin>
+  <link rel="preload" href="fonts/Graphik-Light.woff2" as="font" crossorigin>
+  <link rel="icon" href="images/favicon/favicon.svg">
+  <link rel="mask-icon" href="images/favicon/apple-touch-icon.png" color="#000000">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="menu">
+      <a class="logo" href="#">Web Phenomenon</a>
+      <div class="menu__group">
+        <a class="menu__social" href="https://github.com/modivicious" target="_blank" aria-label="GitHub">
+          <svg width="32" height="32" fill="#530619">
+            <use href="images/sprite.svg#github"></use>
+          </svg>
+        </a>
+        <button class="menu__btn" type="button" aria-label="Навигационное меню">
+        </button>
+      </div>
+      <ul class="menu__list">
+        <li class="menu__item">
+          <a class="menu__link" href="#intro">
+            <span>Главная</span>
+          </a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#portfolio">
+            <span>Портфолио</span>
+          </a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#skills">
+            <span>Навыки</span>
+          </a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#contact">
+            <span>Контакты</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main" id="fullpage">
+    <section class="intro section" data-anchor="intro">
+      <div class="section__text">
+        <h1 class="intro__title title">
+          Готовность <br>
+          вложить душу <br>
+          в ваш сайт
+        </h1>
+        <h2 class="intro__subtitle subtitle">
+          Разработка веб-сайтов
+          со стремлением <br>
+          довести работу до идеала.
+        </h2>
+        <a class="intro__btn" href="#portfolio">
+          Мое портфолио
+        </a>
+      </div>
+      <div class="intro__pic">
+        <div class="parallax" id="parallax">
+          <div class="parallax__wrapper" data-depth="0.08">
+            <div class="parallax__el parallax__el--circle">
+              <img src="images/intro-pic/circle.svg" alt="">
+            </div>
+          </div>
+          <div class="parallax__wrapper" data-depth="0.18">
+            <div class="parallax__el parallax__el--page">
+              <img src="images/intro-pic/page.svg" alt="">
+            </div>
+          </div>
+          <div class="parallax__wrapper" data-depth="0.38">
+            <div class="parallax__el parallax__el--hands">
+              <img src="images/intro-pic/hands.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="portfolio section" data-anchor="portfolio">
+      <div class="slide">
+        <div class="portfolio__intro">
+          <div class="section__text">
+            <h2 class="portfolio__title title">
+              Портфолио
+            </h2>
+            <h3 class="portfolio__subtitle subtitle">
+              С помощью стрелок вы можете ознакомиться с моими работами.
+            </h3>
+          </div>
+        </div>
+        <div class="portfolio__preview">
+          <img class="project__monitor" src="images/monitor.svg" alt="">
+        </div>
+      </div>
+      <ul class="portfolio__list">
+        <li class="project slide">
+          <div class="project__inner">
+            <div class="project__content">
+              <div class="project__suptitle">Интернет-магазин</div>
+              <h3 class="project__title">Интернет-магазин мебели</h3>
+              <p>
+                Верстка по&nbsp;принципу Mobile&nbsp;First. <br>
+                На сайте 5&nbsp;страниц: главная, каталог, блог, корзина и&nbsp;страница товара. <br>
+                Реализована отложенная загрузка изображений (lazy&#8209;load).
+              </p>
+              <a class="link" href="#" target="_blank">Перейти на сайт</a>
+            </div>
+            <div class="project__preview">
+              <img class="project__monitor" src="images/monitor.svg" alt="">
+              <div class='project__pic-box'>
+                <a class='link-focus' href='#'>
+                  <picture>
+                    <source srcset='images/content/projects/anthro.webp' type='image/webp'>
+                    <img class='project__img' src='images/content/projects/anthro.jpg' alt=''>
+                  </picture>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="project slide">
+          <div class="project__inner">
+            <div class="project__content">
+              <div class="project__suptitle">Лендинг</div>
+              <h3 class="project__title">Школа иностранных языков</h3>
+              <p>
+                Верстка лендинга (посадочной страницы), адаптация под&nbsp;мобильные устройства.
+                Анимирование&nbsp;логотипа.
+              </p>
+              <a class="link" href="#" target="_blank">Перейти на сайт</a>
+            </div>
+            <div class="project__preview">
+              <img class="project__monitor" src="images/monitor.svg" alt="">
+              <div class='project__pic-box'>
+                <a class='link-focus' href='#'>
+                  <picture>
+                    <source srcset='images/content/projects/puzzles.webp' type='image/webp'>
+                    <img class='project__img' src='images/content/projects/puzzles.jpg' alt=''>
+                  </picture>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="project slide">
+          <div class="project__inner">
+            <div class="project__content">
+              <div class="project__suptitle">Лендинг</div>
+              <h3 class="project__title">Студия дизайна интерьера</h3>
+              <p>
+                Верстка, адаптация, анимирование контента при&nbsp;прокрутке.
+              </p>
+              <a class="link" href="#" target="_blank">Перейти на сайт</a>
+            </div>
+            <div class="project__preview">
+              <img class="project__monitor" src="images/monitor.svg" alt="">
+              <div class='project__pic-box'>
+                <a class='link-focus' href='#'>
+                  <picture>
+                    <source srcset='images/content/projects/yd.webp' type='image/webp'>
+                    <img class='project__img' src='images/content/projects/yd.jpg' alt=''>
+                  </picture>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="project slide">
+          <div class="project__inner">
+            <div class="project__content">
+              <div class="project__suptitle">Лендинг</div>
+              <h3 class="project__title">Горнолыжный курорт</h3>
+              <p>
+                Верстка и адаптация. <br>
+                Автор дизайн&#8209;макета: Kate&nbsp;Tambovtseva.
+              </p>
+              <a class="link" href="#" target="_blank">Перейти на сайт</a>
+            </div>
+            <div class="project__preview">
+              <img class="project__monitor" src="images/monitor.svg" alt="">
+              <div class='project__pic-box'>
+                <a class='link-focus' href='#'>
+                  <picture>
+                    <source srcset='images/content/projects/ak-bulak.webp' type='image/webp'>
+                    <img class='project__img' src='images/content/projects/ak-bulak.jpg' alt=''>
+                  </picture>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="skills section" data-anchor="skills">
+      <div class="section__text">
+        <h2 class="skills__title title">
+          Навыки
+        </h2>
+        <ul class="skills__list">
+          <li class="skills__item">
+            Адаптивная, семантическая, кроссбраузерная&nbsp;верстка.
+          </li>
+          <li class="skills__item">
+            Работа с дизайн&#8209;макетами Figma и&nbsp;Photoshop.
+          </li>
+          <li class="skills__item">
+            Анимация контента.
+          </li>
+          <li class="skills__item">
+            Любовь и ответственное отношение к&nbsp;своему&nbsp;делу.
+          </li>
+        </ul>
+        <p class="skills__subtitle subtitle">
+          Сделать для вас качественный и быстрый сайт &#8212; в&nbsp;моих&nbsp;же&nbsp;интересах.
+        </p>
+      </div>
+      <ul class="skills__stack section__pic" aria-label="Список технологий">
+        <li>
+          <figure class="skills__tech">
+            <svg class="skills__logo" width="77" height="87">
+              <use href="images/sprite.svg#html"></use>
+            </svg>
+            <figcaption>HTML</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="skills__tech">
+            <svg class="skills__logo" width="77" height="87">
+              <use href="images/sprite.svg#css"></use>
+            </svg>
+            <figcaption>CSS</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="skills__tech">
+            <svg class="skills__logo" width="77" height="87">
+              <use href="images/sprite.svg#js"></use>
+            </svg>
+            <figcaption>JavaScript</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="skills__tech">
+            <svg class="skills__logo" width="77" height="77">
+              <use href="images/sprite.svg#git"></use>
+            </svg>
+            <figcaption>Git</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="skills__tech">
+            <svg class="skills__logo" width="77" height="58">
+              <use href="images/sprite.svg#scss"></use>
+            </svg>
+            <figcaption>SASS/SCSS</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="skills__tech">
+            <svg class="skills__logo" width="77" height="74">
+              <use href="images/sprite.svg#jq"></use>
+            </svg>
+            <figcaption>JQuery</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="skills__tech">
+            <svg class="skills__logo" width="58" height="87">
+              <use href="images/sprite.svg#figma"></use>
+            </svg>
+            <figcaption>Figma</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="skills__tech">
+            <svg class="skills__logo" width="77" height="75">
+              <use href="images/sprite.svg#photoshop"></use>
+            </svg>
+            <figcaption>Photoshop</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="skills__tech">
+            <svg class="skills__logo" width="39" height="87">
+              <use href="images/sprite.svg#gulp"></use>
+            </svg>
+            <figcaption>Gulp</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </section>
+    <section class="contact section" data-anchor="contact">
+      <div class="section__text">
+        <h2 class="contact__title title">
+          Контакты
+        </h2>
+        <p>
+          А теперь давайте поговорим о вашем проекте
+        </p>
+        <ul class="contact__list">
+          <li class="contact__item contact__item--mail">
+            <a class="contact__link" href="mailto:phenomenonweb@gmail.com" target="_blank"
+              aria-label="Электронная почта">
+              phenomenonweb@gmail.com
+            </a>
+          </li>
+          <li class="contact__item contact__item--tg">
+            <a class="contact__link" href="https://telegram.me/modivicious" target="_blank" aria-label="Telegram"
+              title="@modivicious">
+              <svg width="32" height="32" fill="#530619">
+                <use href="images/sprite.svg#telegram"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="contact__item contact__item--whatsapp">
+            <a class="contact__link" href="https://wa.me/79161720177" target="_blank" aria-label="WhatsApp"
+              title="+79161720177">
+              <svg width="32" height="32" fill="#530619">
+                <use href="images/sprite.svg#whatsapp"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>

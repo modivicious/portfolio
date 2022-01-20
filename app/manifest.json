@@ -1,0 +1,18 @@
+{
+  "lang": "ru",
+  "dir": "ltr",
+  "name": "",
+  "description": "",
+  "short_name": "",
+  "icons": [
+    {
+      "src": "images/favicon/google-touch-icon.png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#ecebeb"
+}
