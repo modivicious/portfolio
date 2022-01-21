@@ -1,12 +1,53 @@
 new fullpage('#fullpage', {
   autoScrolling: true,
+  scrollingSpeed: 900,
   navigation: true,
   navigationPosition: 'left',
   loopHorizontal: false,
   anchors: ['intro', 'portfolio', 'skills', 'contact'],
   recordHistory: false,
-  fadingEffect: true,
-  fadingEffect: 'slides',
+  onLeave: (origin, destination, direction) => {
+    let tl = gsap.timeline({ delay: 0.3 });
+    let nextClass = ".fp-section-" + (destination.index + 1);
+    tl.fromTo(
+      nextClass + " .anim-text",
+      {
+        x: "-100%",
+      },
+      {
+        x: "0",
+        delay: (i) => {
+          return i * 0.4
+        },
+        duration: 0.85,
+        ease: "power2.out",
+      });
+  },
+  afterRender: () => {
+    let sections = document.querySelectorAll('.section');
+    sections.forEach((section, i) => {
+      let num = i + 1;
+      section.classList.add("fp-section-" + num);
+    });
+  }
+});
+
+window.addEventListener("load", () => {
+  let tl = gsap.timeline({ delay: 0.1 });
+  tl.fromTo(
+    ".active .anim-text",
+    {
+      x: "-100%",
+    },
+    {
+      x: "0",
+      delay: (i) => {
+        return i * 0.4
+      },
+      duration: 0.85,
+      ease: "power2.out",
+    });
+
 });
 
 let parallax = document.getElementById('parallax');
