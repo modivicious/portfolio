@@ -42,7 +42,7 @@
     width: 48px;
     svg {
       display: block;
-      transition: all 0.23s ease-in;
+      transition: all 0.3s;
     }
     &:hover {
       svg {
@@ -130,12 +130,29 @@
         width: 0;
         height: 4px;
         background-color: $extra;
-        transition: all 0.4s ease-in-out;
+        transition: all 0.45s ease-in-out;
       }
     }
     &:hover span::before {
       width: 100%;
     }
+  }
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $accent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__text {
+    @extend %graphik-300;
+    font-size: 28px;
+    color: #fff;
   }
 }
 
@@ -188,9 +205,20 @@
   }
   &__el {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    &--circle,
+    &--page {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &--left {
+      top: 36.9%;
+      left: 6%;
+    }
+    &--right {
+      top: 42.7%;
+      right: 6%;
+    }
   }
 }
 
@@ -219,7 +247,7 @@
     visibility: hidden;
     opacity: 0;
     z-index: 0;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.45s ease-in-out;
   }
   .fp-slide.active {
     visibility: visible;
@@ -262,12 +290,41 @@
     position: absolute;
     right: 5%;
   }
+  &__monitor {
+    pointer-events: none;
+  }
   &__pic-box {
     position: absolute;
     top: 20px;
     right: 16px;
     overflow: hidden;
-    height: 277px;
+    height: 278px;
+    &:hover .link-focus {
+      &::before {
+        background-color: rgba(#222, 0.66);
+      }
+      &::after {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    .link-focus::after {
+      content: "Перейти";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @extend %graphik-500;
+      line-height: 1;
+      color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s;
+      padding-right: 32px;
+      background-image: url("../images/icons/external-link.svg");
+      background-repeat: no-repeat;
+      background-position: bottom 3px right 1px;
+    }
   }
   &__img {
     width: 518px;
@@ -285,7 +342,10 @@
   &__stack {
     display: grid;
     grid-template-columns: repeat(3, max-content);
-    gap: 48px;
+    gap: 48px 56px;
+    justify-content: center;
+    max-width: 550px;
+    width: 100%;
   }
   &__tech {
     display: grid;
@@ -303,9 +363,6 @@
 //----------- contact -----------
 
 .contact {
-  background-image: url("../images/contact.jpg");
-  background-repeat: no-repeat;
-  background-position: center right 7.5%;
   p {
     margin-bottom: 48px;
   }

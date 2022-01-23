@@ -87,6 +87,11 @@ body {
     max-width: 660px;
     position: relative;
     overflow: hidden;
+    p {
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+    }
   }
   &__pic {
     position: absolute;
@@ -114,6 +119,15 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
+    transition: all 0.35s;
+  }
+}
+
+.text-link {
+  @extend %graphik-500;
+  transition: all .3s;
+  &:hover{
+    opacity: 0.7;
   }
 }
 
@@ -131,7 +145,7 @@ body {
         margin: 0;
         transform: translate(-50%, -50%);
         background-color: $gray;
-        transition: all .3s ease-in-out;
+        transition: all 0.3s ease-in-out;
       }
       &.active span {
         margin: 0;
@@ -150,42 +164,24 @@ body {
   }
 }
 
-.fp-controlArrow {
-  top: unset;
-  bottom: 30px;
-  margin: 0;
-  border: none;
-  width: auto;
-  &.fp-prev {
-    left: 50%;
-    transform: translateX(-120%);
-    width: 95px;
-    height: 40px;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 95px;
-      height: 16px;
-      background-image: url("../images/icons/arrow-left.svg");
-      background-repeat: no-repeat;
+.control {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  &__arrow {
+    svg {
+      transition: all 0.2s ease-in-out;
+    }
+    &.disable {
+      cursor: unset;
+      svg {
+        fill: #d2d2d2;
+      }
     }
   }
-  &.fp-next {
-    right: 50%;
-    transform: translateX(120%);
-    width: 95px;
-    height: 40px;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 95px;
-      height: 16px;
-      background-image: url("../images/icons/arrow-right.svg");
-      background-repeat: no-repeat;
-    }
+  &__prev {
+    margin-right: 30px;
   }
 }

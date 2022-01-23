@@ -55,6 +55,9 @@
         </li>
       </ul>
     </nav>
+    <div class="loader">
+      <span class="loader__text">Web Phenomenon</span>
+    </div>
   </header>
 
   <main class="main" id="fullpage">
@@ -78,17 +81,30 @@
         <div class="parallax" id="parallax">
           <div class="parallax__wrapper" data-depth="0.08">
             <div class="parallax__el parallax__el--circle">
-              <img src="images/intro-pic/circle.svg" alt="">
+              <svg width="550" height="550">
+                <use href="images/sprite.svg#circle"></use>
+              </svg>
             </div>
           </div>
           <div class="parallax__wrapper" data-depth="0.18">
             <div class="parallax__el parallax__el--page">
-              <img src="images/intro-pic/page.svg" alt="">
+              <svg width="310" height="200">
+                <use href="images/sprite.svg#page"></use>
+              </svg>
             </div>
           </div>
           <div class="parallax__wrapper" data-depth="0.38">
-            <div class="parallax__el parallax__el--hands">
-              <img src="images/intro-pic/hands.svg" alt="">
+            <div class="parallax__el parallax__el--left">
+              <svg width="242" height="104">
+                <use href="images/sprite.svg#left-hand"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="parallax__wrapper" data-depth="0.38">
+            <div class="parallax__el parallax__el--right">
+              <svg width="239" height="112">
+                <use href="images/sprite.svg#right-hand"></use>
+              </svg>
             </div>
           </div>
         </div>
@@ -101,9 +117,12 @@
             <h2 class="portfolio__title title anim-text">
               Портфолио
             </h2>
-            <h3 class="portfolio__subtitle subtitle anim-text">
-              С помощью стрелок вы можете ознакомиться с моими работами.
-            </h3>
+            <p class="anim-text">
+              Вы можете ознакомиться с моими лучшими работами.
+            </p>
+            <p class="anim-text">
+              Все проекты являются тренировочными, однако максимально приближены к реальным.
+            </p>
           </div>
         </div>
         <div class="portfolio__preview">
@@ -190,7 +209,8 @@
               <h3 class="project__title">Горнолыжный курорт</h3>
               <p>
                 Верстка и адаптация. <br>
-                Автор дизайн&#8209;макета: Kate&nbsp;Tambovtseva.
+                Автор дизайн&#8209;макета: <a class="text-link" href="https://behance.net/katetambovtseva"
+                  target="_blank">Kate&nbsp;Tambovtseva</a>.
               </p>
               <a class="link" href="#" target="_blank">Перейти на сайт</a>
             </div>
@@ -208,6 +228,18 @@
           </div>
         </li>
       </ul>
+      <div class="control">
+        <button class="control__arrow control__prev" type="button" aria-label="Назад">
+          <svg width="95" height="16" fill="#222">
+            <use href="images/sprite.svg#arrow-prev"></use>
+          </svg>
+        </button>
+        <button class="control__arrow control__next" type="button" aria-label="Вперед">
+          <svg width="95" height="16" fill="#222">
+            <use href="images/sprite.svg#arrow-next"></use>
+          </svg>
+        </button>
+      </div>
     </section>
     <section class="skills section" data-anchor="skills">
       <div class="section__text">
@@ -229,7 +261,7 @@
           </li>
         </ul>
         <p class="skills__subtitle subtitle anim-text">
-          Сделать для вас качественный и быстрый сайт &#8212; в&nbsp;моих&nbsp;же&nbsp;интересах.
+          Сделать для вас качественный и быстрый&nbsp;сайт&nbsp;&#8212; в&nbsp;моих&nbsp;же&nbsp;интересах.
         </p>
       </div>
       <ul class="skills__stack section__pic" aria-label="Список технологий">
@@ -313,7 +345,7 @@
           Контакты
         </h2>
         <p class="anim-text">
-          А теперь давайте поговорим о вашем проекте
+          А теперь давайте поговорим о вашем проекте.
         </p>
         <ul class="contact__list anim-text">
           <li class="contact__item contact__item--mail">
@@ -339,6 +371,12 @@
             </a>
           </li>
         </ul>
+      </div>
+      <div class="section__pic">
+        <picture>
+          <source srcset='images/content/contact.webp' type='image/webp'>
+          <img class='section__img' src='images/content/contact.jpg' alt=''>
+        </picture>
       </div>
     </section>
   </main>
