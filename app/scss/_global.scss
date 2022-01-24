@@ -30,13 +30,6 @@ body {
   overflow-y: hidden;
 }
 
-.container {
-  max-width: 1250px;
-  width: 100%;
-  padding: 0 25px;
-  margin: 0 auto;
-}
-
 .title {
   @extend %graphik-500;
   text-transform: uppercase;
@@ -46,39 +39,9 @@ body {
   margin-bottom: 20px;
 }
 
-.subtitle {
-}
-
-.link {
-  display: inline-block;
-  padding: 10px 144px 10px 0;
-  position: relative;
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  &::before {
-    z-index: 5;
-    right: 28px;
-    width: 86px;
-    height: 9px;
-    background-image: url("../images/icons/link.svg");
-    background-repeat: no-repeat;
-    transition: all 0.2s linear;
-  }
-  &::after {
-    right: 0;
-    width: 56px;
-    height: 56px;
-    background-color: $extra-mono;
-    border-radius: 50%;
-  }
-  &:hover::before {
-    right: 20px;
-  }
+.logo {
+  @extend %graphik-300;
+  font-size: 28px;
 }
 
 .section {
@@ -99,9 +62,14 @@ body {
     transform: translateY(-50%);
     right: 5%;
   }
-  img.section__pic {
+  img {
     pointer-events: none;
   }
+}
+
+.anim-text,
+.anim-pic {
+  will-change: transform, opacity;
 }
 
 .link-focus {
@@ -125,8 +93,8 @@ body {
 
 .text-link {
   @extend %graphik-500;
-  transition: all .3s;
-  &:hover{
+  transition: all 0.3s;
+  &:hover {
     opacity: 0.7;
   }
 }
@@ -145,7 +113,7 @@ body {
         margin: 0;
         transform: translate(-50%, -50%);
         background-color: $gray;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s;
       }
       &.active span {
         margin: 0;
