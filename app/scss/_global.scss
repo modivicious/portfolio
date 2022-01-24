@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   @extend %graphik-400;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.6;
   background-color: #fff;
   color: $accent;
@@ -33,7 +33,7 @@ body {
 .title {
   @extend %graphik-500;
   text-transform: uppercase;
-  font-size: 64px;
+  font-size: 58px;
   line-height: 1.2;
   letter-spacing: 0.04em;
   margin-bottom: 20px;
@@ -47,7 +47,7 @@ body {
 .section {
   &__text {
     margin-left: 10%;
-    max-width: 660px;
+    max-width: 510px;
     position: relative;
     overflow: hidden;
     p {
@@ -93,6 +93,7 @@ body {
 
 .text-link {
   @extend %graphik-500;
+  white-space: nowrap;
   transition: all 0.3s;
   &:hover {
     opacity: 0.7;
@@ -103,7 +104,7 @@ body {
   left: 48px !important;
   ul li {
     height: 16px;
-    width: auto;
+    width: 16px;
     margin: 0;
     a {
       span,
@@ -134,7 +135,7 @@ body {
 
 .control {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;

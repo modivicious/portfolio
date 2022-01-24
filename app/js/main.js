@@ -20,7 +20,7 @@ new fullpage("#fullpage", {
           {
             x: "-100%",
             duration: 1,
-            delay: .25,
+            delay: .2,
             stagger: .08,
             ease: "power2.out"
           }
@@ -35,7 +35,7 @@ new fullpage("#fullpage", {
             x: "0",
             opacity: "1",
             duration: 1,
-            delay: .25,
+            delay: .2,
             ease: "power2.out"
           }
         );

@@ -291,9 +291,6 @@
     position: relative;
   }
   &__content {
-    margin-left: 10%;
-    max-width: 510px;
-    width: 100%;
     p {
       margin-bottom: 22px;
     }
@@ -312,7 +309,7 @@
   }
   &__link {
     display: inline-block;
-    padding: 10px 144px 10px 0;
+    padding: 12px 144px 12px 0;
     position: relative;
     &::before,
     &::after {
@@ -345,15 +342,11 @@
     position: absolute;
     right: 5%;
   }
-  &__monitor {
-    pointer-events: none;
-  }
   &__pic-box {
     position: absolute;
     top: 20px;
     right: 16px;
     overflow: hidden;
-    height: 278px;
     &:hover .link-focus,
     .link-focus:focus {
       &::before {
