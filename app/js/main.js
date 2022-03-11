@@ -188,14 +188,14 @@ document.addEventListener("click", e => {
 
 animControl.addEventListener("click", () => {
   if (localStorage.getItem("isAnimate") !== "false") {
-    localStorage.setItem("isAnimate", "false");
     animControl.classList.add("anim-control--disabled");
     animControl.innerHTML = "Анимация: отключена";
+    localStorage.setItem("isAnimate", "false");
   }
   else {
-    localStorage.setItem("isAnimate", "true");
     animControl.classList.remove("anim-control--disabled");
     animControl.innerHTML = "Анимация: включена";
+    localStorage.setItem("isAnimate", "true");
   }
 });
 

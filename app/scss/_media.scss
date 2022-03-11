@@ -173,6 +173,7 @@
       position: unset;
       transform: unset;
       grid-row: 1;
+      justify-self: center;
     }
     &__responsive-pic {
       width: 364px;
@@ -220,6 +221,9 @@
 @media (max-width: 550px) {
   .header {
     padding: 20px 20px 0;
+  }
+  .menu__rightside{
+    padding: 90px 20px 20px;
   }
   #fp-nav {
     left: 20px !important;
