@@ -2,8 +2,8 @@
   "lang": "ru",
   "dir": "ltr",
   "name": "Web Phenomenon | Портфолио",
-  "description": "",
-  "short_name": "",
+  "description": "Web Phenomenon: портфолио верстальщика / frontend-разработчика",
+  "short_name": "Web Ph.",
   "icons": [
     {
       "src": "images/favicon/google-touch-icon.png",

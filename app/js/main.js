@@ -11,6 +11,7 @@ new fullpage("#fullpage", {
   anchors: ["intro", "portfolio", "skills", "contact"],
   animateAnchor: false,
   recordHistory: false,
+  dragAndMove: "fingeronly",
   onLeave: (origin, destination, direction) => {
     if (localStorage.getItem("isAnimate") !== "false") {
       if (!sectionsAnimStatus[destination.index] && direction === "down") {
@@ -44,17 +45,21 @@ new fullpage("#fullpage", {
     sectionsAnimStatus[destination.index] = true;
   },
   afterLoad() {
-    slideCheck();
+    slideDisableCheck();
+    setCurrentSlideIndex();
   },
   afterSlideLoad() {
-    slideCheck();
+    slideDisableCheck();
+    setCurrentSlideIndex();
   },
   afterRender: () => {
-    let sections = document.querySelectorAll(".section");
+    const sections = document.querySelectorAll(".section");
     sections.forEach((section, i) => {
       let num = i + 1;
       section.classList.add("fp-section-" + num);
     });
+    const numberOfSlides = document.querySelectorAll(".fp-slide");
+    document.querySelector(".control__total").innerHTML = numberOfSlides.length - 1;
   }
 });
 
@@ -135,25 +140,26 @@ window.onload = () => {
       }
     );
   }
-  else if (localStorage.getItem("isAnimate") === "false")
+  else if (localStorage.getItem("isAnimate") === "false") {
     animControl.classList.add("anim-control--disabled");
+    animControl.innerHTML = "Анимация: отключена";
+  }
 }
 
 let parallax = document.getElementById("parallax");
 new Parallax(parallax);
 
-let menuRight = document.querySelector(".menu__rightside");
-let menuGroup = document.querySelector(".menu__group");
-let menuBtn = document.querySelector(".menu__btn");
-let menuLink = document.querySelectorAll(".menu__link");
-let animControl = document.querySelector(".anim-control");
+const menuRight = document.querySelector(".menu__rightside");
+const menuGroup = document.querySelector(".menu__group");
+const menuBtn = document.querySelector(".menu__btn");
+const menuLink = document.querySelectorAll(".menu__link");
+const animControl = document.querySelector(".anim-control");
 
 menuBtn.addEventListener("click", () => toggleMenu());
 menuLink.forEach(link => link.addEventListener("click", () => toggleMenu()));
 
-
-let prevSlide = document.querySelector(".control__prev");
-let nextSlide = document.querySelector(".control__next");
+const prevSlide = document.querySelector(".control__prev");
+const nextSlide = document.querySelector(".control__next");
 
 prevSlide.addEventListener("click", () => {
   fullpage_api.setScrollingSpeed(500);
@@ -167,36 +173,39 @@ nextSlide.addEventListener("click", () => {
   fullpage_api.setScrollingSpeed(900);
 });
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", e => {
   if (
-    menuRight.classList.contains("menu__rightside--active") && // if menu open
-    menuRight !== e.target && // if click was not on our menu
-    !menuRight.contains(e.target) && // ...and not on its children
-    menuGroup !== e.target && // and click was not on header group
-    !menuGroup.contains(e.target) // ...and not on its children
+    menuRight.classList.contains("menu__rightside--active") &&
+    !menuRight.contains(e.target) &&
+    !menuGroup.contains(e.target)
   ) toggleMenu();
+  if (
+    stackList.classList.contains("skills__wrapper--active") &&
+    !stackList.querySelector(".skills__stack").contains(e.target) &&
+    !showBtn.contains(e.target)
+  ) stackList.classList.toggle("skills__wrapper--active");
 });
 
 animControl.addEventListener("click", () => {
   if (localStorage.getItem("isAnimate") !== "false") {
     localStorage.setItem("isAnimate", "false");
     animControl.classList.add("anim-control--disabled");
+    animControl.innerHTML = "Анимация: отключена";
   }
   else {
     localStorage.setItem("isAnimate", "true");
     animControl.classList.remove("anim-control--disabled");
+    animControl.innerHTML = "Анимация: включена";
   }
 });
-
 
 const toggleMenu = () => {
   menuBtn.classList.toggle("menu__btn--active");
   menuRight.classList.toggle("menu__rightside--active");
   menuGroup.classList.toggle("menu__group--active");
-  document.body.classList.toggle("hide-overflow");
-}
+};
 
-function slideCheck() {
+function slideDisableCheck() {
   let slide = fullpage_api.getActiveSlide();
   if (slide !== null) {
     if (slide.isFirst)
@@ -207,3 +216,16 @@ function slideCheck() {
     else nextSlide.classList.remove("disable");
   }
 }
+
+function setCurrentSlideIndex() {
+  let currentSlide = fullpage_api.getActiveSlide();
+  if (currentSlide)
+    document.querySelector(".control__current").innerHTML = currentSlide.index;
+}
+
+const showBtn = document.querySelector(".skills__show-btn");
+const stackList = document.querySelector(".skills__wrapper");
+
+showBtn.addEventListener("click", function () {
+  stackList.classList.toggle("skills__wrapper--active");
+});

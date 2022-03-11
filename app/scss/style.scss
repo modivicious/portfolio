@@ -92,7 +92,8 @@
     top: 0;
     right: 0;
     width: 320px;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
     will-change: transform;
     transform: translateX(100%);
     transition: all 0.25s linear;
@@ -142,34 +143,19 @@
 }
 
 .anim-control {
-  padding-right: 10px;
+  display: inline-block;
   font-size: 18px;
   text-align: right;
-  .text-disabled,
-  .text-enabled {
-    display: inline-block;
-    padding-right: 24px;
-    background-repeat: no-repeat;
-    background-position: right;
-    transition: all 0.3s;
-  }
-  .text-disabled {
-    display: none;
-    background-image: url("../images/icons/cross.svg");
-  }
-  .text-enabled {
-    background-image: url("../images/icons/check.svg");
+  padding-right: 24px;
+  background-image: url("../images/icons/check.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  transition: all 0.3s;
+  &:hover {
+    opacity: 0.7;
   }
   &--disabled {
-    .text-enabled {
-      display: none;
-    }
-    .text-disabled {
-      display: inline-block;
-    }
-  }
-  &:hover span {
-    opacity: 0.7;
+    background-image: url("../images/icons/cross.svg");
   }
 }
 
@@ -204,17 +190,13 @@
     &::before {
       content: "";
       position: absolute;
-      top: 2px;
+      top: 50%;
       right: 0;
+      transform: translateY(-50%);
       width: 19px;
       height: 19px;
       background-image: url("../images/icons/arrow-down.svg");
       background-repeat: no-repeat;
-      transition: all 0.3s linear;
-      will-change: transform;
-    }
-    &:hover::before {
-      transform: translateY(3px);
     }
   }
 }
@@ -290,10 +272,8 @@
     align-items: center;
     position: relative;
   }
-  &__content {
-    p {
-      margin-bottom: 22px;
-    }
+  &__content p {
+    margin-bottom: 22px;
   }
   &__suptitle {
     @extend %graphik-300;
@@ -309,7 +289,7 @@
   }
   &__link {
     display: inline-block;
-    padding: 12px 144px 12px 0;
+    padding: 16px 144px 16px 0;
     position: relative;
     &::before,
     &::after {
@@ -338,32 +318,23 @@
       right: 20px;
     }
   }
-  &__preview {
-    position: absolute;
-    right: 5%;
+  &__img {
+    width: 550px;
+    height: 100%;
+    object-fit: cover;
   }
-  &__pic-box {
-    position: absolute;
-    top: 20px;
-    right: 16px;
-    overflow: hidden;
-    &:hover .link-focus,
-    .link-focus:focus {
-      &::before {
-        background-color: rgba(#222, 0.66);
-      }
-      &::after {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-    .link-focus::after {
+  .section__pic {
+    box-shadow: 0 0 25px rgba(#949494, 10%);
+  }
+  .section__pic .link-focus {
+    &::after {
       content: "Перейти";
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       @extend %graphik-500;
+      font-size: 22px;
       line-height: 1;
       color: #fff;
       opacity: 0;
@@ -374,19 +345,30 @@
       background-repeat: no-repeat;
       background-position: bottom 3px right 1px;
     }
-  }
-  &__img {
-    width: 518px;
-    height: 100%;
-    object-fit: cover;
+    &:hover::after,
+    &:focus::after {
+      opacity: 1;
+      visibility: visible;
+    }
+    &:hover::before,
+    &:focus::before {
+      background-color: rgba(#222, 0.6);
+    }
   }
 }
 
 //----------- skills -----------
 
 .skills {
-  &__list {
-    margin-bottom: 32px;
+  &__item:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  &__show-btn {
+    display: none;
+    border: 2px solid $accent;
+    border-radius: 6px;
+    padding: 9px 18px;
+    margin: 32px 0 3px;
   }
   &__stack {
     display: grid;
@@ -405,6 +387,10 @@
       padding-top: 12px;
       font-size: 16px;
     }
+  }
+  &__tech-logo {
+    width: 77px;
+    height: 100%;
   }
 }
 
@@ -452,8 +438,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
       }
     }
     &:last-child {

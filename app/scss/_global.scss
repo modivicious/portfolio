@@ -1,20 +1,13 @@
-html,
-body {
-  height: 100%;
+html {
+  height: -webkit-fill-available;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   @extend %graphik-400;
   font-size: 22px;
   line-height: 1.6;
   background-color: #fff;
   color: $accent;
-}
-
-.main {
-  flex-grow: 1;
 }
 
 .visually-hidden {
@@ -24,10 +17,6 @@ body {
   height: 1px;
   margin: -1px;
   overflow: hidden;
-}
-
-.hide-overflow {
-  overflow-y: hidden;
 }
 
 .title {
@@ -61,6 +50,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     right: 5%;
+    width: max-content;
   }
   img {
     pointer-events: none;
@@ -70,6 +60,10 @@ body {
 .anim-text,
 .anim-pic {
   will-change: transform, opacity;
+}
+
+.img-box {
+  position: relative;
 }
 
 .link-focus {
@@ -139,6 +133,11 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;
+  display: flex;
+  white-space: nowrap;
+  & > *:not(:last-child) {
+    margin-right: 30px;
+  }
   &__arrow {
     svg {
       transition: all 0.2s ease-in-out;
@@ -150,7 +149,9 @@ body {
       }
     }
   }
-  &__prev {
-    margin-right: 30px;
+  &__numbers {
+    @extend %graphik-500;
+    font-size: 22px;
+    min-width: 50px;
   }
 }

@@ -53,9 +53,9 @@ function images() {
         imagemin.gifsicle({ interlaced: true }),
         imagemin.mozjpeg({ quality: 90, progressive: true }),
         imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-          plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-        }),
+        // imagemin.svgo({
+        //   plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+        // }),
       ])
     )
     .pipe(dest("dist/images"));
