@@ -10,8 +10,7 @@
   #fp-nav {
     top: unset;
     transform: unset;
-    bottom: 27px;
-    left: 40px !important;
+    bottom: 36px;
     ul {
       display: flex;
       li {
@@ -216,13 +215,16 @@
   .control {
     bottom: 70px;
   }
+  #fp-nav {
+    bottom: 27px;
+  }
 }
 
 @media (max-width: 550px) {
   .header {
     padding: 20px 20px 0;
   }
-  .menu__rightside{
+  .menu__rightside {
     padding: 90px 20px 20px;
   }
   #fp-nav {

@@ -3,7 +3,7 @@
   "dir": "ltr",
   "name": "Web Phenomenon | Портфолио",
   "description": "Web Phenomenon: портфолио верстальщика / frontend-разработчика",
-  "short_name": "Web Ph.",
+  "short_name": "Web Ph",
   "icons": [
     {
       "src": "images/favicon/google-touch-icon.png",
@@ -14,5 +14,5 @@
   "display": "fullscreen",
   "orientation": "portrait",
   "background_color": "#ffffff",
-  "theme_color": "#ffffff"
+  "theme_color": "#530619"
 }
