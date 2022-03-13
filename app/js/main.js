@@ -1,3 +1,5 @@
+gsap.config({ nullTargetWarn: false });
+
 let sectionsAnimStatus = [];
 
 new fullpage("#fullpage", {
@@ -11,7 +13,6 @@ new fullpage("#fullpage", {
   anchors: ["intro", "portfolio", "skills", "contact"],
   animateAnchor: false,
   recordHistory: false,
-  dragAndMove: "fingeronly",
   onLeave: (origin, destination, direction) => {
     if (localStorage.getItem("isAnimate") !== "false") {
       if (!sectionsAnimStatus[destination.index] && direction === "down") {
