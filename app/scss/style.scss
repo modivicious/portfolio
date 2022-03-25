@@ -95,7 +95,7 @@
     min-height: 100vh;
     min-height: -webkit-fill-available;
     will-change: transform;
-    transform: translateX(100%);
+    transform: translate3d(100%, 0, 0);
     transition: all 0.25s linear;
     padding: 120px 40px 20px;
     background-color: $accent;
@@ -105,7 +105,7 @@
     justify-content: space-between;
     overflow-y: auto;
     &--active {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
   }
   &__list {
