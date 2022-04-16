@@ -120,8 +120,12 @@ export const sprite = () => {
     .pipe(gulp.dest("app/images"));
 }
 
+export const buildFonts = () => {
+  return gulp.src("app/fonts/*").pipe(gulp.dest("dist/fonts"));
+}
+
 export const buildOther = () => {
-  return gulp.src(["app/fonts/*", "app/**/manifest.json"]).pipe(gulp.dest("dist"));
+  return gulp.src(["app/**/manifest.json"]).pipe(gulp.dest("dist"));
 }
 
 export const cleanDist = () => {
@@ -141,6 +145,6 @@ export const watching = () => {
   gulp.watch(["app/**/*.html"]).on("change", browserSync.reload);
 }
 
-export const build = gulp.series(cleanDist, gulp.parallel(htmlMin, cssMin, jsMin, buildOther, imagesMin), zipArchive);
+export const build = gulp.series(cleanDist, gulp.parallel(htmlMin, cssMin, jsMin, buildFonts, buildOther, imagesMin), zipArchive);
 
 export default gulp.parallel(styles, scripts, browsersync, watching);
