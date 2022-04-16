@@ -324,7 +324,7 @@
     object-fit: cover;
   }
   .section__pic {
-    box-shadow: 0 0 25px rgba(#949494, 10%);
+    box-shadow: 0 0 25px #949494;
   }
   .section__pic .link-focus {
     &::after {
@@ -346,12 +346,12 @@
       background-position: bottom 3px right 1px;
     }
     &:hover::after,
-    &:focus::after {
+    &:focus-visible::after {
       opacity: 1;
       visibility: visible;
     }
     &:hover::before,
-    &:focus::before {
+    &:focus-visible::before {
       background-color: rgba(#222, 0.6);
     }
   }
