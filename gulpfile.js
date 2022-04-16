@@ -1,17 +1,23 @@
-const { src, dest, watch, parallel, series } = require("gulp");
+import gulp from "gulp";
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+import concat from "gulp-concat";
+import autoprefixer from "gulp-autoprefixer";
+import uglify from "gulp-uglify";
+import htmlmin from "gulp-htmlmin";
+import cleanCss from "gulp-clean-css";
+import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
+import webpConvert from "gulp-webp";
+import cheerio from "gulp-cheerio";
+import svgSprite from "gulp-svg-sprite";
+import zip from "gulp-zip";
+import del from "del";
+import browserSync from "browser-sync";
 
-const scss = require("gulp-sass");
-const concat = require("gulp-concat");
-const autoprefixer = require("gulp-autoprefixer");
-const uglify = require("gulp-uglify");
-const imagemin = require("gulp-imagemin");
-const webpConvert = require("gulp-webp");
-const webpDelete = require("del");
-const del = require("del");
-const { notify } = require("browser-sync");
-const browserSync = require("browser-sync").create();
+browserSync.create();
+const sass = gulpSass(dartSass);
 
-function browsersync() {
+export const browsersync = () => {
   browserSync.init({
     server: {
       baseDir: "app/",
@@ -20,81 +26,121 @@ function browsersync() {
   });
 }
 
-function styles() {
-  return src("app/scss/style.scss")
-    .pipe(scss({ outputStyle: "compressed" }))
-    .pipe(concat("style.min.css"))
+export const styles = () => {
+  return gulp.src("app/scss/style.scss")
+    .pipe(sass())
+    .pipe(concat("style.css"))
     .pipe(
       autoprefixer({
-        overrideBrowserslist: ["last 10 versions"],
-        grid: true,
+        overrideBrowserslist: ["defaults, not IE 11"]
       })
     )
-    .pipe(dest("app/css"))
+    .pipe(gulp.dest("app/css"))
     .pipe(browserSync.stream());
 }
 
-function scripts() {
-  return src([
+export const scripts = () => {
+  return gulp.src([
     "node_modules/fullpage.js/dist/fullpage.js",
     "node_modules/parallax-js/dist/parallax.js",
     "node_modules/gsap/dist/gsap.js",
-    "app/js/main.js"])
+    "app/js/main.js"
+  ])
     .pipe(concat("main.min.js"))
-    .pipe(uglify())
-    .pipe(dest("app/js"))
+    .pipe(gulp.dest("app/js"))
     .pipe(browserSync.stream());
 }
 
-function images() {
-  return src("app/images/**/*.*")
+export const htmlMin = () => {
+  return gulp.src("app/**/*.html")
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest("dist"))
+}
+
+export const cssMin = () => {
+  return gulp.src("app/css/**/*.css")
+    .pipe(cleanCss({ level: 2 }))
+    .pipe(gulp.dest("dist/css"));
+}
+
+export const jsMin = () => {
+  return gulp.src("app/js/main.min.js")
+    .pipe(uglify())
+    .pipe(gulp.dest("dist/js"));
+}
+
+export const imagesMin = () => {
+  return gulp.src("app/images/**/*.*")
     .pipe(
       imagemin([
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.mozjpeg({ quality: 90, progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        // imagemin.svgo({
-        //   plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-        // }),
+        gifsicle({ interlaced: true }),
+        mozjpeg({ quality: 82, progressive: true }),
+        optipng({ optimizationLevel: 5 }),
+        svgo({
+          plugins: [
+            { name: 'removeViewBox', active: true },
+            { name: 'cleanupIDs', active: false },
+          ],
+        }),
       ])
     )
-    .pipe(dest("dist/images"));
+    .pipe(gulp.dest("dist/images"));
 }
 
-function webp() {
-  return src("app/images/**/*.*")
-    .pipe(webpConvert({ quality: 90 }))
-    .pipe(dest("app/images"));
+export const webp = () => {
+  return gulp.src(["app/images/**/*.{jpg,jpeg,png}", "!app/images/favicon/*"], { since: gulp.lastRun(webp) })
+    .pipe(webpConvert({ quality: 82 }))
+    .pipe(gulp.dest("app/images"));
 }
 
-function webpDel() {
-  return webpDelete("app/images/**/*.webp");
+export const webpDel = () => {
+  return del("app/images/**/*.webp");
 }
 
-function build() {
-  return src(["app/**/*.html", "app/fonts/*", "app/**/manifest.json", "app/css/style.min.css", "app/js/main.min.js"], {
-    base: "app",
-  }).pipe(dest("dist"));
+export const sprite = () => {
+  return gulp.src("app/images/sprite/*.svg")
+    .pipe(cheerio({
+      run: function ($) {
+        $('[fill]').removeAttr('fill');
+        $('[stroke]').removeAttr('stroke');
+        $('[style]').removeAttr('style');
+        $('[xmlns]').removeAttr('xmlns');
+      },
+      parserOptions: {
+        xmlMode: true
+      },
+    }))
+    .pipe(svgSprite({
+      mode: {
+        stack: {
+          sprite: "../sprite.svg"
+        }
+      }
+    }))
+    .pipe(gulp.dest("app/images"));
 }
 
-function cleanDist() {
+export const buildOther = () => {
+  return gulp.src(["app/fonts/*", "app/**/manifest.json"]).pipe(gulp.dest("dist"));
+}
+
+export const cleanDist = () => {
   return del("dist");
 }
 
-function watching() {
-  watch(["app/scss/**/*.scss"], styles);
-  watch(["app/js/**/*.js", "!app/js/main.min.js"], scripts);
-  watch(["app/**/*.html"]).on("change", browserSync.reload);
+export const zipArchive = () => {
+  return gulp.src("dist/**/*")
+    .pipe(zip('archive.zip'))
+    .pipe(gulp.dest("dist"));
 }
 
-exports.styles = styles;
-exports.scripts = scripts;
-exports.browsersync = browsersync;
-exports.watching = watching;
-exports.images = images;
-exports.webp = webp;
-exports.webpDel = webpDel;
-exports.cleanDist = cleanDist;
-exports.build = series(cleanDist, images, build);
+export const watching = () => {
+  gulp.watch(["app/scss/**/*.scss"], styles);
+  gulp.watch(["app/js/**/*.js", "!app/js/main.min.js"], scripts);
+  gulp.watch("app/images/**/*.{jpg,jpeg,png}").on("add", webp);
+  gulp.watch(["app/**/*.html"]).on("change", browserSync.reload);
+}
 
-exports.default = parallel(styles, scripts, browsersync, watching);
+export const build = gulp.series(cleanDist, gulp.parallel(htmlMin, cssMin, jsMin, buildOther, imagesMin), zipArchive);
+
+export default gulp.parallel(styles, scripts, browsersync, watching);

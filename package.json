@@ -1,25 +1,24 @@
 {
-  "name": "start-gulp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "private": true,
+  "type": "module",
   "devDependencies": {
-    "browser-sync": "^2.26.14",
+    "browser-sync": "^2.27.9",
     "del": "^6.0.0",
     "fullpage.js": "^3.1.2",
     "gsap": "^3.9.1",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-cheerio": "^1.0.0",
+    "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-svg-sprite": "^1.5.0",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
-    "parallax-js": "^3.1.0"
+    "gulp-zip": "^5.1.0",
+    "parallax-js": "^3.1.0",
+    "sass": "^1.49.11"
   }
 }
