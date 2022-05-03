@@ -103,7 +103,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-y: auto;
     &--active {
       transform: translate3d(0, 0, 0);
     }
@@ -112,7 +111,7 @@
     text-align: right;
   }
   &__item {
-    padding: 30px 0;
+    padding: 22px 0;
   }
   &__link {
     display: inline-block;
@@ -357,6 +356,19 @@
   }
 }
 
+//----------- about -----------
+
+.about {
+  &__pic-box {
+    display: flex;
+    justify-content: center;
+  }
+  &__pic {
+    width: 388px;
+    border-radius: 50%;
+  }
+}
+
 //----------- skills -----------
 
 .skills {
@@ -375,7 +387,6 @@
     grid-template-columns: repeat(3, max-content);
     gap: 48px 56px;
     justify-content: center;
-    width: 550px;
   }
   &__tech {
     display: grid;
@@ -410,7 +421,7 @@
     }
     &--mail {
       width: 100%;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       .contact__link {
         display: inline-block;
         letter-spacing: 0.02em;

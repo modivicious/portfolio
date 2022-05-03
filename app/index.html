@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Phenomenon | Портфолио</title>
-  <meta name="description" content="Web Phenomenon: портфолио верстальщика / frontend-разработчика">
-  <meta name="theme-color" content="#fff">
+  <title>Web Phenomenon | Frontend-разработчик Данила Приходько | Портфолио</title>
+  <meta name="description"
+    content="Портфолио Frontend-разработчика: разработка Web-интерфейсов с особым вниманием к деталям.">
+  <meta name="theme-color" content="#530619">
   <link rel="preload" href="fonts/Graphik-Regular.woff2" as="font" crossorigin>
   <link rel="preload" href="fonts/Graphik-Medium.woff2" as="font" crossorigin>
   <link rel="preload" href="fonts/Graphik-Light.woff2" as="font" crossorigin>
@@ -42,6 +43,11 @@
           <li class="menu__item">
             <a class="menu__link" href="#portfolio">
               <span>Портфолио</span>
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#about">
+              <span>Обо мне</span>
             </a>
           </li>
           <li class="menu__item">
@@ -122,6 +128,10 @@
               </p>
               <p class="anim-text">
                 Все проекты являются тренировочными, однако максимально приближены к реальным.
+              </p>
+              <p class="anim-text">
+                Исходный код: <a class="text-link" href="https://github.com/modivicious?tab=repositories"
+                  target="_blank" aria-label="GitHub">GitHub</a>.
               </p>
             </div>
           </div>
@@ -344,36 +354,66 @@
       </div>
     </section>
 
+    <section class="about section" data-anchor="about">
+      <div class="section__wrapper">
+        <div class="section__text">
+          <h2 class="title anim-text">
+            Обо мне
+          </h2>
+          <p class="anim-text">
+            Здравствуйте, меня зовут Данила. <br>
+          </p>
+          <p class="anim-text">
+            Я — начинающий Frontend&#8209;разработчик, развиваюсь&nbsp;в&nbsp;этой&nbsp;сфере более&nbsp;года
+            и&nbsp;не&nbsp;желаю
+            останавливаться.
+          </p>
+          <p class="anim-text">
+            К своему делу подхожу с&nbsp;энтузиазмом, ответственностью и&nbsp;любовью.
+          </p>
+          <p class="anim-text">
+            Истинный перфекционист.
+          </p>
+        </div>
+        <div class="about__pic-box same-width section__pic anim-pic">
+          <picture>
+            <source srcset='images/content/photo.webp' type='image/webp'>
+            <img class="about__pic" src="images/content/photo.jpg" alt="Мое фото">
+          </picture>
+        </div>
+      </div>
+    </section>
+
     <section class="skills section" data-anchor="skills">
       <div class="section__wrapper">
         <div class="section__text">
           <h2 class="skills__title title anim-text">
             Навыки
           </h2>
-          <ul class="skills__list anim-text">
-            <li class="skills__item">
+          <ul class="skills__list">
+            <li class="skills__item anim-text">
               Адаптивная, семантическая, кроссбраузерная,&nbsp;валидная верстка.
             </li>
-            <li class="skills__item">
+            <li class="skills__item anim-text">
               JavaScript ES6+.
             </li>
-            <li class="skills__item">
+            <li class="skills__item anim-text">
               React + Redux.
             </li>
-            <li class="skills__item">
+            <li class="skills__item anim-text">
               Анимация контента.
             </li>
-            <li class="skills__item">
-              Перфекционизм.
+            <li class="skills__item anim-text">
+              БЭМ.
             </li>
-            <li class="skills__item">
-              Любовь и ответственное отношение к&nbsp;своему&nbsp;делу.
+            <li class="skills__item anim-text">
+              Pixel Perfect.
             </li>
           </ul>
           <button class="skills__show-btn anim-text" type="button">Стек технологий</button>
         </div>
         <div class="skills__wrapper section__pic anim-pic">
-          <ul class="skills__stack" aria-label="Список технологий">
+          <ul class="skills__stack same-width" aria-label="Список технологий">
             <li>
               <figure class="skills__tech">
                 <img class="skills__tech-logo" src="images/content/logos/html.svg" alt="Логотип HTML">
@@ -424,8 +464,8 @@
             </li>
             <li>
               <figure class="skills__tech">
-                <img class="skills__tech-logo" src="images/content/logos/jq.svg" alt="Логотип jQuery">
-                <figcaption>jQuery</figcaption>
+                <img class="skills__tech-logo" src="images/content/logos/ts.svg" alt="Логотип TypeScript">
+                <figcaption>TypeScript</figcaption>
               </figure>
             </li>
           </ul>

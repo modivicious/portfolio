@@ -56,9 +56,16 @@
       width: 40vw;
     }
   }
+  .same-width {
+    width: max-content;
+  }
+  .about {
+    &__pic {
+      width: 30vw;
+    }
+  }
   .skills {
     &__stack {
-      width: max-content;
       gap: 34px 44px;
     }
     &__tech-logo {
@@ -141,9 +148,6 @@
     &__rightside {
       padding-top: 90px;
     }
-    &__item {
-      padding: 20px 0;
-    }
     &__link {
       font-size: 28px;
     }
@@ -184,6 +188,11 @@
     justify-content: center;
     gap: 60px;
     padding: 0 25px;
+  }
+  .about {
+    &__pic {
+      width: 256px;
+    }
   }
   .skills {
     &__wrapper {
@@ -229,6 +238,11 @@
   }
   #fp-nav {
     left: 20px !important;
+  }
+  .about {
+    &__pic {
+      width: 240px;
+    }
   }
 }
 

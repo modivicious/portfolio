@@ -11,7 +11,7 @@
     navigationPosition: "left",
     loopHorizontal: false,
     controlArrows: false,
-    anchors: ["intro", "portfolio", "skills", "contact"],
+    anchors: ["intro", "portfolio", "about", "skills", "contact"],
     animateAnchor: false,
     recordHistory: false,
     onLeave: (origin, destination, direction) => {
@@ -148,7 +148,7 @@
     }
   }
 
-  let parallax = document.getElementById("parallax");
+  const parallax = document.getElementById("parallax");
   new Parallax(parallax);
 
   const menuRight = document.querySelector(".menu__rightside");
@@ -208,7 +208,7 @@
   };
 
   function slideDisableCheck() {
-    let slide = fullpage_api.getActiveSlide();
+    const slide = fullpage_api.getActiveSlide();
     if (slide !== null) {
       if (slide.isFirst)
         prevSlide.classList.add("disable");
@@ -220,7 +220,7 @@
   }
 
   function setCurrentSlideIndex() {
-    let currentSlide = fullpage_api.getActiveSlide();
+    const currentSlide = fullpage_api.getActiveSlide();
     if (currentSlide)
       document.querySelector(".control__current").innerHTML = currentSlide.index;
   }
